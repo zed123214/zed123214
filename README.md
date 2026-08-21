@@ -1,6 +1,6 @@
 ## 杨宝荣｜AI 应用开发 / 后端工程
 
-硕士在读，关注 Agent Runtime、RAG 检索评测、MCP 与 Java 后端工程。
+27届硕士｜AI Agent / RAG 应用开发｜Python / Java
 
 ### Featured Projects
 - [Agent Runtime Kit](https://github.com/zed123214/agent-runtime-kit)：本地 Agent Runtime，支持状态图、持久化、权限与 MCP

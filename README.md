@@ -4,7 +4,6 @@
 
 ### Featured Projects
 - [Agent Runtime Kit](https://github.com/zed123214/agent-runtime-kit)：本地 Agent Runtime，支持状态图、持久化、权限与 MCP
-- [QA Agent RAG Platform](https://github.com/zed123214/qa-agent-rag-platform)：企业文档 RAG 与 Agent 测试评测平台
 - [Financial PDF Skill Eval](https://github.com/zed123214/financial-pdf-skill-eval)：PDF Skill 自动化评测脚手架
 
 ### Tech Stack

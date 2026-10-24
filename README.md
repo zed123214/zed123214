@@ -18,6 +18,7 @@
 
 ## Selected Projects
 
+<!-- Keep matching sections in shared rows so unequal screenshot ratios cannot shift the project descriptions and links. -->
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
@@ -25,9 +26,32 @@
 <h3><a href="https://github.com/zed123214/kitagent">KitAgent</a></h3>
 <p><strong>AI Agent 运行时与可视化工作台</strong></p>
 
+</td>
+<td width="50%" valign="top">
+
+<h3><a href="https://github.com/zed123214/SkillGrow">SkillGrow</a></h3>
+<p><strong>评测驱动的 Agent Skill 迭代工作台</strong></p>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
 <a href="https://github.com/zed123214/kitagent#demo">
   <img src="https://raw.githubusercontent.com/zed123214/kitagent/main/docs/assets/web-workbench-overview.png" alt="KitAgent：多轮对话、工具审批与运行报告" width="480" />
 </a>
+
+</td>
+<td width="50%" valign="top">
+
+<a href="https://github.com/zed123214/SkillGrow#产品预览">
+  <img src="https://raw.githubusercontent.com/zed123214/SkillGrow/main/docs/assets/dashboard-overview.png" alt="SkillGrow：用例评测、评分依据与运行追踪 Dashboard" width="480" />
+</a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
 <p>将模型调用、工具执行与会话状态组织成常驻运行时，通过 Web、CLI 和 TUI 完成任务。</p>
 
@@ -39,22 +63,8 @@
 
 <p><strong>工程验证：</strong>完成 20 会话并发隔离测试与 100 次沙箱创建、回收验证。</p>
 
-<p><sub>Python · asyncio · LangGraph · SQLite · Kubernetes · React</sub></p>
-<p>
-  <a href="https://github.com/zed123214/kitagent#demo">查看演示</a> ·
-  <a href="https://github.com/zed123214/kitagent#architecture">系统架构</a> ·
-  <a href="https://github.com/zed123214/kitagent/blob/main/docs/durable-recovery.md">恢复设计</a>
-</p>
-
 </td>
 <td width="50%" valign="top">
-
-<h3><a href="https://github.com/zed123214/SkillGrow">SkillGrow</a></h3>
-<p><strong>评测驱动的 Agent Skill 迭代工作台</strong></p>
-
-<a href="https://github.com/zed123214/SkillGrow#产品预览">
-  <img src="https://raw.githubusercontent.com/zed123214/SkillGrow/main/docs/assets/dashboard-overview.png" alt="SkillGrow：用例评测、评分依据与运行追踪 Dashboard" width="480" />
-</a>
 
 <p>围绕任务用例、评测反馈与候选版本组织 Skill 迭代，在工作台中检查质量、诊断失败与管理修改。</p>
 
@@ -65,6 +75,21 @@
 </ul>
 
 <p><strong>首个场景：</strong>金融 PDF 解析，结合 LAS 与 OpenClaw 实现结构化输出和分层评测。</p>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+<p><sub>Python · asyncio · LangGraph · SQLite · Kubernetes · React</sub></p>
+<p>
+  <a href="https://github.com/zed123214/kitagent#demo">查看演示</a> ·
+  <a href="https://github.com/zed123214/kitagent#architecture">系统架构</a> ·
+  <a href="https://github.com/zed123214/kitagent/blob/main/docs/durable-recovery.md">恢复设计</a>
+</p>
+
+</td>
+<td width="50%" valign="top">
 
 <p><sub>Python · OpenClaw · LAS · Pytest · Streamlit · Docker</sub></p>
 <p>

@@ -2,7 +2,7 @@
 
 <h1>杨宝荣 <sub>Baorong Yang</sub></h1>
 
-<p><strong>AI Agent 工程化 · Python 后端开发</strong></p>
+<p><strong>AI Agent 工程化 · 后端开发</strong></p>
 <p>2027 届硕士 · 关注 AI Agent / 后端研发岗位</p>
 
 <p>
@@ -14,9 +14,7 @@
 
 </div>
 
-我用 Python 开发 AI Agent 运行时和评测工具，关注三个问题：**任务中断后如何恢复、工具执行如何隔离、修改后如何验证效果**。
-
-目前维护 **KitAgent** 和 **SkillGrow**，分别实践 Agent 执行与 Skill 评测；也参与昇腾 CANN 的 Ascend C 算子开发。下面的项目演示、设计文档和提交记录可以查看具体实现。
+主要做 AI Agent 和后端开发。目前维护两个项目：**KitAgent** 是 Agent 运行时，**SkillGrow** 用来评测和改进 Agent Skill。也参与昇腾 CANN 的 Ascend C 算子开发。
 
 ## 代表项目
 

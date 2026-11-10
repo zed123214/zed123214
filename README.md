@@ -2,7 +2,7 @@
 
 <h1>杨宝荣 <sub>Baorong Yang</sub></h1>
 
-<p><strong>算子 Coding Agent · AI Agent 工程化 · 后端开发</strong></p>
+<p><strong>算子 Coding Agent · Skill 自进化 · AI Agent 工程化</strong></p>
 <p>2027 届硕士 · 关注 AI Agent / 后端研发岗位</p>
 
 <p>
@@ -17,7 +17,7 @@
 
 我关注 **Coding Agent 如何参与真实的算子开发与性能优化**：从理解规格、阅读代码，到修改实现、验证精度、对比性能，再根据实验结果继续迭代。
 
-目前维护 **KitAgent**，为这套开发流程提供 Agent 运行时与可视化工作台；维护 **SkillGrow**，用评测结果改进 Agent Skill。同时参与昇腾 CANN 的 **Ascend C** 算子开发，将广播、数据搬运、核间协作与负载均衡的实践整理为可复盘的案例。
+目前维护 **KitAgent**，为这套开发流程提供 Agent 运行时与可视化工作台；维护 **SkillGrow**，构建**失败反馈驱动的 Skill 自进化流程**，将失败轨迹转化为 Skill 文档与规则候选补丁，沉淀回放记录与版本快照。同时参与昇腾 CANN 的 **Ascend C** 算子开发，将广播、数据搬运、核间协作与负载均衡的实践整理为可复盘的案例。
 
 ## 代表项目
 
@@ -33,7 +33,7 @@
 <td width="50%" valign="top">
 
 <h3><a href="https://github.com/zed123214/SkillGrow">SkillGrow</a></h3>
-<p><strong>评测驱动的 Agent Skill 迭代工作台</strong></p>
+<p><strong>失败反馈驱动的 Skill 自进化</strong></p>
 
 </td>
 </tr>
@@ -65,18 +65,17 @@
   <li><strong>执行追踪：</strong>在工作台查看流式事件、工具时间线与审批记录，导出运行报告。</li>
 </ul>
 
-<p><sub>Equal 工作台演示使用脚本化模型响应与实际工具执行，展示实现、验证和报告流程。</sub></p>
-
 <p><strong>工程验证：</strong>单节点 kind + Cilium、离线 Provider 环境下，20 个并发会话完成 200 次跨会话读写探测，泄漏为 0；100 次沙箱创建与回收全部完成，最终资源残留为 0。</p>
 
 </td>
 <td width="50%" valign="top">
 
-<p>以金融 PDF 解析为首个场景，用评测结果定位 Skill 的失败原因，管理候选修改与回归记录。</p>
+<p>以金融 PDF 抽取为首个场景，构建<strong>失败轨迹 → 问题诊断 → 候选修订 → 回放验证与版本沉淀</strong>的 Skill 自进化流程。</p>
 
 <ul>
-  <li><strong>分层评测：</strong>检查输出格式、表格结构、人工标注准确率与 Judge 诊断，查看用例评分和失败阶段。</li>
-  <li><strong>候选管理：</strong>根据失败记录生成规则模板补丁，在独立工作区管理候选，保存产物回放评分与回归记录。</li>
+  <li><strong>失败诊断：</strong>关联执行轨迹与解析结果，结合分层评测和 Judge 诊断，定位输出格式、表格结构与字段抽取问题。</li>
+  <li><strong>候选修订：</strong>将失败反馈转化为 Skill 文档与规则候选补丁，通过 Schema 与路径白名单约束修改范围。</li>
+  <li><strong>迭代沉淀：</strong>在独立工作区保存候选补丁、产物回放评分、回归记录与版本快照，为下一轮 Skill 修订提供可追溯依据。</li>
   <li><strong>质量判断：</strong>通过 DocumentIR 与 Evidence Pack 组织文档和证据，输出质量决策，并按运行追踪产物与报告。</li>
 </ul>
 
@@ -102,7 +101,7 @@
 <p>
   <a href="https://github.com/zed123214/SkillGrow#产品预览">查看演示</a> ·
   <a href="https://github.com/zed123214/SkillGrow#核心能力">核心能力</a> ·
-  <a href="https://github.com/zed123214/SkillGrow#工作流">迭代流程</a>
+  <a href="https://github.com/zed123214/SkillGrow#工作流">自进化流程</a>
 </p>
 
 </td>
@@ -147,6 +146,7 @@
 | **KitAgent：Web 工作台与会话权限** | [功能提交](https://github.com/zed123214/kitagent/commit/3bbcee2d62bf79c6203a459d5d5d3035c64d03ac)包含浏览器工作台、Core 网关、运行报告与权限控制，提交说明记录了离线 Python、前端状态和浏览器测试。 |
 | **KitAgent：Kubernetes 沙箱** | [功能提交](https://github.com/zed123214/kitagent/commit/634ba01c983b27ffa293d658638ade6c697ffa3c)与[部署、验收说明](https://github.com/zed123214/kitagent/blob/main/docs/kubernetes-sandbox.md)，覆盖会话隔离、资源限制与回收。 |
 | **KitAgent：持久化恢复设计** | [设计文档](https://github.com/zed123214/kitagent/blob/main/docs/durable-recovery.md)说明检查点、工具执行记录、恢复令牌与并发恢复的处理方式。 |
+| **SkillGrow：失败反馈驱动的自进化** | [候选与回归模块](https://github.com/zed123214/SkillGrow/tree/main/financial-pdf-skill-eval-framework/optimizer/)围绕失败轨迹生成规则补丁提案，管理候选工作区、回放记录与版本快照。 |
 | **SkillGrow：文档质量与运行隔离** | [功能提交](https://github.com/zed123214/SkillGrow/commit/61d73ab067a6dbb2b618eb4a42d79706b829f447)包含文档表示、证据包、质量策略和回归测试，并记录专项验证结果及当时全量离线测试的已知失败。 |
 
 [KitAgent 提交记录](https://github.com/zed123214/kitagent/commits/main/) · [SkillGrow 提交记录](https://github.com/zed123214/SkillGrow/commits/main/)
@@ -162,6 +162,6 @@
 
 ---
 
-欢迎交流 **算子 Coding Agent、Ascend C 性能优化、Agent 运行时与评测工程**，也欢迎联系 **2027 届 AI Agent / 后端研发岗位**。
+欢迎交流 **算子 Coding Agent、Skill 自进化、Ascend C 性能优化与 Agent 工程**，也欢迎联系 **2027 届 AI Agent / 后端研发岗位**。
 
 **Email：** [yangbaorong78@gmail.com](mailto:yangbaorong78@gmail.com)

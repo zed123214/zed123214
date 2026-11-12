@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>杨宝荣 <sub>Baorong Yang</sub></h1>
+<h1><sub>Baorong Yang</sub></h1>
 
 <p><strong>算子 Coding Agent · Skill 自进化 · AI Agent 工程化</strong></p>
 <p>2027 届硕士 · 关注 AI Agent / 后端研发岗位</p>

@@ -15,13 +15,10 @@
 
 </div>
 
-我开发 **KitAgent**，让 Coding Agent 在同一会话里修改算子、验证精度、对照基线测性能。在本地 LangGraph + SQLite 模式下，服务重启后可以从检查点继续执行。我用 Ascend C 编写的 **Equal** 算子已合入昇腾 CANN 的 `ops-math`。
-
-我也维护 **SkillGrow**。它把财报抽取的失败样例、原文和执行轨迹放在一起，方便定位错误、修订 Skill 规则并检查回归结果。
+我开发了算子优化工作台 **KitAgent** 和 Skill 评测工具 **SkillGrow**，也为昇腾 CANN 贡献了 Equal 算子。
 
 ## 代表项目
 
-<!-- Keep matching sections in shared rows so unequal screenshot ratios cannot shift the project descriptions and links. -->
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
@@ -70,12 +67,12 @@
 </td>
 <td width="50%" valign="top">
 
-<p>以金融 PDF 抽取为首个场景，构建<strong>失败轨迹 → 问题诊断 → 候选修订 → 回放验证与版本沉淀</strong>的 Skill 自进化流程。</p>
+<p>SkillGrow 是我在 <strong>2026 字节跳动工程训练营</strong> 做的项目，用财报抽取的失败样例评测和改进 Skill。</p>
 
 <ul>
   <li><strong>失败诊断：</strong>关联执行轨迹与解析结果，结合分层评测和 Judge 诊断，定位输出格式、表格结构与字段抽取问题。</li>
   <li><strong>候选修订：</strong>将失败反馈转化为 Skill 文档与规则候选补丁，通过 Schema 与路径白名单约束修改范围。</li>
-  <li><strong>迭代沉淀：</strong>在独立工作区保存候选补丁、产物回放评分、回归记录与版本快照，为下一轮 Skill 修订提供可追溯依据。</li>
+  <li><strong>修改记录：</strong>在独立工作区保存候选补丁、回放评分和版本快照，方便比较每次修订的结果。</li>
   <li><strong>质量判断：</strong>通过 DocumentIR 与 Evidence Pack 组织文档和证据，输出质量决策，并按运行追踪产物与报告。</li>
 </ul>
 
@@ -108,8 +105,6 @@
 </tr>
 </table>
 
-在 **2026 字节跳动工程训练营**，我对照人工标注检查财报抽取结果中的表头、报告期和金额。结营后，我把这套评测工具扩展成 SkillGrow，在工作台里保留了触发规则修订的失败样例和对应的回归记录。
-
 ## 算子开发与优化实践
 
 ### 昇腾 CANN · Equal 算子
@@ -132,14 +127,18 @@
 
 **理解规格与基线 → 分析瓶颈 → 修改候选 → 精度验证与配对测速 → 汇总报告、继续迭代。**
 
-用同一会话保留任务上下文，通过工具时间线查看执行证据，通过审批卡控制写入与命令执行；将成熟步骤整理为 Skills，复用于下一次开发。
+在同一会话里查看每一步调用了哪些工具，确认文件写入和命令执行。常用步骤可以保存为 Skills，在下次实验中复用。
 
 [观看 Equal 开发演示](https://github.com/zed123214/kitagent#demo) · [复制算子优化任务模板](https://github.com/zed123214/kitagent#operator-demo) · [启动工作台](https://github.com/zed123214/kitagent#quick-start)
 
 ## 学术成果
 
-- **第一作者 · 车联网资源分配**　为让车辆可靠地复用蜂窝上行频谱，我把双向通信的中断概率约束转成发射功率上界，用交替优化选择功率，再用最大权匹配分配频谱，并通过仿真与半双工方案比较容量。[Physical Communication，2026](https://doi.org/10.1016/j.phycom.2026.103403)
-- **第二作者 · 光学仿真与传感（2 篇）**　我参与了两项研究的软件实现。一项比较反射屏空腔的深度和宽度对太赫兹喷流焦距的影响，另一项分析光子喷流的焦距和相对峰值光强如何随材料折射率变化。[Optics & Laser Technology，2025](https://doi.org/10.1016/j.optlastec.2024.111467) · [Measurement，2025](https://doi.org/10.1016/j.measurement.2024.115530)
+我主要研究无线网络中的资源分配，目前有两篇论文在外审。
+
+- **约束感知深度展开**（第一作者）　把迭代优化算法展开为固定层数的网络，在可靠性和速率约束下为全双工车联网分配资源。
+- **图神经网络功率控制**（第三作者）　参与 DPGNN 研究，将方向先验引入图神经网络，为相互干扰的链路分配发射功率，以满足各链路的服务质量要求。
+
+此前以第一作者发表了[车联网功率与频谱联合分配论文](https://doi.org/10.1016/j.phycom.2026.103403)，另有两篇第二作者光学论文（[喷流整形](https://doi.org/10.1016/j.optlastec.2024.111467)、[折射率传感](https://doi.org/10.1016/j.measurement.2024.115530)）。
 
 ## 社区交流
 
@@ -147,16 +146,14 @@
 
 ## 开发记录
 
-以下记录包含具体实现、验证说明和设计取舍，便于从主页继续查看代码。
-
 | 工作 | 实现与验证入口 |
 | --- | --- |
 | **KitAgent：算子 Coding Agent 工作流** | [开发演示](https://github.com/zed123214/kitagent#demo)与[优化案例](https://github.com/zed123214/kitagent#operator-demo)，串起规格分析、代码修改、正确性验证、配对测速与报告交付。 |
-| **KitAgent：Web 工作台与会话权限** | [功能提交](https://github.com/zed123214/kitagent/commit/3bbcee2d62bf79c6203a459d5d5d3035c64d03ac)包含浏览器工作台、Core 网关、运行报告与权限控制，提交说明记录了离线 Python、前端状态和浏览器测试。 |
+| **KitAgent：Web 工作台与会话权限** | [功能提交](https://github.com/zed123214/kitagent/commit/3bbcee2d62bf79c6203a459d5d5d3035c64d03ac)包含浏览器工作台、Core 网关、运行报告与权限控制，附有后端、前端和浏览器测试记录。 |
 | **KitAgent：Kubernetes 沙箱** | [功能提交](https://github.com/zed123214/kitagent/commit/634ba01c983b27ffa293d658638ade6c697ffa3c)与[部署、验收说明](https://github.com/zed123214/kitagent/blob/main/docs/kubernetes-sandbox.md)，覆盖会话隔离、资源限制与回收。 |
 | **KitAgent：持久化恢复设计** | [设计文档](https://github.com/zed123214/kitagent/blob/main/docs/durable-recovery.md)说明检查点、工具执行记录、恢复令牌与并发恢复的处理方式。 |
 | **SkillGrow：失败反馈驱动的自进化** | [候选与回归模块](https://github.com/zed123214/SkillGrow/tree/main/financial-pdf-skill-eval-framework/optimizer/)围绕失败轨迹生成规则补丁提案，管理候选工作区、回放记录与版本快照。 |
-| **SkillGrow：文档质量与运行隔离** | [功能提交](https://github.com/zed123214/SkillGrow/commit/61d73ab067a6dbb2b618eb4a42d79706b829f447)包含文档表示、证据包、质量策略和回归测试，并记录专项验证结果及当时全量离线测试的已知失败。 |
+| **SkillGrow：文档质量与运行隔离** | [功能提交](https://github.com/zed123214/SkillGrow/commit/61d73ab067a6dbb2b618eb4a42d79706b829f447)包含文档表示、证据包、质量策略和回归测试。 |
 
 [KitAgent 提交记录](https://github.com/zed123214/kitagent/commits/main/) · [SkillGrow 提交记录](https://github.com/zed123214/SkillGrow/commits/main/)
 

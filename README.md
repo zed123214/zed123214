@@ -1,9 +1,7 @@
 <div align="center">
 
-<h1><sub>Baorong Yang</sub></h1>
+<h1><sub>Baorong Yang ｜ AI Agent / 后端研发 </sub></h1>
 
-<p><strong>算子 Coding Agent · Skill 自进化 · AI Agent 工程化</strong></p>
-<p>2027 届硕士 · 关注 AI Agent / 后端研发岗位</p>
 
 <p>
   <a href="https://github.com/zed123214/kitagent">KitAgent</a> ·
@@ -15,7 +13,7 @@
 
 </div>
 
-我开发了算子优化工作台 **KitAgent** 和 Skill 评测工具 **SkillGrow**，也为昇腾 CANN 贡献了 Equal 算子。
+2027 届计算机硕士,我开发了算子优化工作台 **KitAgent** 和 Skill 评测工具 **SkillGrow**，也为昇腾 CANN 贡献了 Equal 算子。
 
 ## 代表项目
 
@@ -105,23 +103,14 @@
 </tr>
 </table>
 
-## 算子开发与优化实践
 
-### 昇腾 CANN · Equal 算子
+## 开源贡献与竞赛
 
-为 **CANN / ops-math** 贡献 Equal 算子实现，基于 **Ascend C** 完成多维广播与多数据类型适配，**306/306 精度通过，PR 已合并**。实践覆盖广播轴压缩、Host 侧 stride 预计算、UB 分块与缓存复用，以及特殊浮点值和 INT64 比较语义。
+- **昇腾 CANN｜开源贡献**：用 Ascend C 实现 `Equal` 逐元素比较算子，支持多维广播和多种数据类型，306 个精度用例全部通过。[ops-math PR #5425 已合并](https://gitcode.com/cann/ops-math/pull/5425)
+- **2026 CANN 挑战赛｜决赛三等奖（第 14 / 4496 名）**：面向视频生成，实现变长三维旋转位置编码算子 `VarLenNdRotaryPosEmb`，以单个 kernel 支持 FP16/FP32、动态宽高和乱序时间索引。通过向量化、跨注意力头复用系数和自适应分块，官方 5 个可见测试点的耗时降低 20.9%～86.2%。在 69 组回归输入上与 PyTorch 参考实现对照，约 6885 万个输出元素均在容差内。
+- **中国电信「星辰杯」高校 AI 算子开发挑战赛｜优秀奖（决赛 16 强）**：与队友优化稀疏注意力反向算子 `SparseFlashAttentionGrad`。针对 `dK`、`dV` 梯度归约集中在少数计算核、拖慢整体收尾的问题，按查询计算量和归约工作量重新分配任务。在昇腾 910B3 五分片实验中，相比初版分片方案，正序、反序两轮对照测速的耗时分别降低 7.56% 和 5.67%。
 
-[查看贡献与代码评审 → PR #5425](https://gitcode.com/cann/ops-math/pull/5425)
-
-### SparseFlashAttentionGrad · 稀疏 Attention 反向优化
-
-围绕 **dQ / dK / dV** 梯度计算，优化稀疏索引频数统计、AIC / AIV 协作与流水排程，并将查询计算和 dK / dV 归约一起纳入负载分配。
-
-在 **910B3 五分片样机实验**中，重新分配归约任务后，正序测量 **280.17 → 258.99 μs（下降 7.56%）**，反序测量 **275.31 → 259.71 μs（下降 5.67%）**。另在 **910B4 / CANN 8.5.0** 下完成 R5 集成回归，包含 **56 份 FP16 精度报告、112 次毒值检查**。
-
-**算子竞赛**　我在 2026 CANN 挑战赛获**决赛三等奖**，也与队友凭稀疏注意力反向算子优化方案获中国电信「星辰杯」高校 AI 算子开发挑战赛**优秀奖（决赛 16 强）**。
-
-[查看两个算子的优化过程与实验条件 →](https://github.com/zed123214/kitagent#operator-demo)
+[查看 Equal 与 SparseFlashAttentionGrad 的实现、测速与回归记录 →](https://github.com/zed123214/kitagent#operator-demo)
 
 ### 在 KitAgent 中推进一轮实验
 
@@ -133,16 +122,16 @@
 
 ## 学术成果
 
-我主要研究无线网络中的资源分配，目前有两篇论文在外审。
+研究方向为**深度学习与无线网络资源优化**，重点研究如何将迭代优化算法和链路干扰关系融入神经网络，在可靠性、速率等约束下分配功率与频谱。
 
-- **约束感知深度展开**（第一作者）　把迭代优化算法展开为固定层数的网络，在可靠性和速率约束下为全双工车联网分配资源。
-- **图神经网络功率控制**（第三作者）　参与 DPGNN 研究，将方向先验引入图神经网络，为相互干扰的链路分配发射功率，以满足各链路的服务质量要求。
+**在审论文（2 篇）**
+- **约束感知深度展开（第一作者）**：将迭代优化算法的更新步骤映射为固定层数的神经网络，在可靠性与速率约束下求解全双工车联网的资源分配问题。
+- **图神经网络功率控制（第三作者）**：参与 DPGNN 研究，将方向先验引入图神经网络，为相互干扰的链路联合分配发射功率，以满足各链路的服务质量要求。
 
-此前以第一作者发表了[车联网功率与频谱联合分配论文](https://doi.org/10.1016/j.phycom.2026.103403)，另有两篇第二作者光学论文（[喷流整形](https://doi.org/10.1016/j.optlastec.2024.111467)、[折射率传感](https://doi.org/10.1016/j.measurement.2024.115530)）。
+**已发表 SCI 论文（3 篇）**
+- **第一作者（1 篇）**：研究[车联网中的功率与频谱联合分配](https://doi.org/10.1016/j.phycom.2026.103403)，发表于 *Physical Communication*。
+- **第二作者（2 篇）**：[喷流整形](https://doi.org/10.1016/j.optlastec.2024.111467)发表于 *Optics & Laser Technology*；[折射率传感](https://doi.org/10.1016/j.measurement.2024.115530)发表于 *Measurement*。
 
-## 社区交流
-
-在小林coding 的[《杀进决赛！这 28 支队伍把算子优化卷疯了！》](https://mp.weixin.qq.com/s/Sr8wVJQw0Pt6xZSOtdHp2w)评论区分享了 KitAgent 算子开发工作流，获得作者点赞与读者试用反馈。欢迎一起交流算子优化方法和 Coding Agent 的开发实践。
 
 ## 开发记录
 
@@ -168,6 +157,6 @@
 
 ---
 
-欢迎交流 **算子 Coding Agent、Skill 自进化、Ascend C 性能优化与 Agent 工程**，也欢迎联系 **2027 届 AI Agent / 后端研发岗位**。
+欢迎交流 **算子 Coding Agent、Skill 自进化、Ascend C 性能优化与 Agent 工程**，也欢迎联系 **2027 届 AI Infra / 后端研发岗位**。
 
 **Email：** [yangbaorong78@gmail.com](mailto:yangbaorong78@gmail.com)

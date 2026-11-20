@@ -19,6 +19,12 @@
 
 目前维护 **KitAgent**，为这套开发流程提供 Agent 运行时与可视化工作台；维护 **SkillGrow**，构建**失败反馈驱动的 Skill 自进化流程**，将失败轨迹转化为 Skill 文档与规则候选补丁，沉淀回放记录与版本快照。同时参与昇腾 CANN 的 **Ascend C** 算子开发，将广播、数据搬运、核间协作与负载均衡的实践整理为可复盘的案例。
 
+## 经历与荣誉
+
+- **2026 字节跳动工程训练营** · 开发金融 PDF 抽取的 Skill 评测与迭代工具，训练营后持续迭代为 [SkillGrow](https://github.com/zed123214/SkillGrow)。
+- **2026 CANN 挑战赛** · 决赛三等奖。
+- **中国电信星辰杯高校 AI 算子开发挑战赛** · 优秀奖（决赛 16 强），完成稀疏注意力反向算子优化。
+
 ## 代表项目
 
 <!-- Keep matching sections in shared rows so unequal screenshot ratios cannot shift the project descriptions and links. -->

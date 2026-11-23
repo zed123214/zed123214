@@ -1,162 +1,60 @@
-<div align="center">
+# 杨宝荣 · Baorong Yang
 
-<h1><sub>Baorong Yang ｜ AI Agent / 后端研发 </sub></h1>
+[学术主页](https://zed123214.github.io/)
 
+天津师范大学 · 智能科学与技术硕士研究生 · 预计 2027 年 6 月毕业
 
-<p>
-  <a href="https://github.com/zed123214/kitagent">KitAgent</a> ·
-  <a href="https://github.com/zed123214/kitagent#operator-demo">算子优化实战</a> ·
-  <a href="https://github.com/zed123214/SkillGrow">SkillGrow</a> ·
-  <a href="https://gitcode.com/cann/ops-math/pull/5425">CANN Contribution</a> ·
-  <a href="mailto:yangbaorong78@gmail.com">Email</a>
-</p>
+我研究车联网中的功率与频谱分配，关注怎样在满足链路可靠性约束的同时，降低资源分配的求解成本。我也用 Ascend C 开发昇腾算子，并在 KitAgent 中把算子修改、精度验证和配对测速串成可回放的实验。
 
-</div>
+[Google Scholar](https://scholar.google.com/citations?user=WuxKoZIAAAAJ&hl=zh-CN) · [第一作者论文](https://doi.org/10.1016/j.phycom.2026.103403) · [KitAgent 演示](https://github.com/zed123214/kitagent#demo) · [CANN 合入 PR](https://gitcode.com/cann/ops-math/pull/5425) · [yangbaorong78@gmail.com](mailto:yangbaorong78@gmail.com)
 
-2027 届计算机硕士,我开发了算子优化工作台 **KitAgent** 和 Skill 评测工具 **SkillGrow**，也为昇腾 CANN 贡献了 Equal 算子。
+## 学术论文
 
-## 代表项目
+### 代表作
 
-<table width="100%">
-<tr>
-<td width="50%" valign="top">
+**Joint power and spectrum allocation for bidirectional full-duplex V2V communications underlaying cellular V2I uplinks**<br>
+**Baorong Yang**, Tingting Lu, Liang Han<br>
+*Physical Communication*, vol. 80, 103403 (2026) · 第一作者 · [DOI](https://doi.org/10.1016/j.phycom.2026.103403)
 
-<h3><a href="https://github.com/zed123214/kitagent">KitAgent</a></h3>
-<p><strong>面向算子开发与优化的 Coding Agent 工作台</strong></p>
+一对车辆复用蜂窝上行频谱进行双向通信时，两个方向的可靠性要求共同限制发射功率。我们把这两个约束化为显式功率上界，逐对筛选可行的复用方案，再以交替优化得到的容量为权重做一对一匹配。在论文考察的准静态高速公路场景中，全双工方案的蜂窝上行总遍历容量高于半双工基线。
 
-</td>
-<td width="50%" valign="top">
+### 合作论文
 
-<h3><a href="https://github.com/zed123214/SkillGrow">SkillGrow</a></h3>
-<p><strong>失败反馈驱动的 Skill 自进化</strong></p>
+**Performance Analysis of RIS-Assisted Two-Way Communication in Rician Fading Channels**<br>
+Wenrui Yang, **Baorong Yang**, Liang Han<br>
+*ICCEAI 2025* · 第二作者 · [官方会议日程](https://icceai.cn/2025/Program.pdf)
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+**A new method of Terajet shaping by hollow reflection screen**<br>
+Yu-Jing Yang, **Bao-Rong Yang**, De-Long Zhang, Ning Yuan<br>
+*Optics & Laser Technology*, vol. 180, 111467 (2025) · 第二作者 · [DOI](https://doi.org/10.1016/j.optlastec.2024.111467)
 
-<a href="https://github.com/zed123214/kitagent#demo">
-  <img src="https://raw.githubusercontent.com/zed123214/kitagent/main/docs/assets/equal-operator-overview.png" alt="KitAgent：Equal 算子实现、工具审批、精度验证与性能对比" width="480" />
-</a>
+**Large-range refractive index sensor based on photonic jet**<br>
+Yu-Jing Yang, **Bao-Rong Yang**, Meng-Qing Yuan, De-Long Zhang, Ning Yuan, Sai-Dong Xue<br>
+*Measurement*, vol. 239, 115530 (2025) · 第二作者 · [DOI](https://doi.org/10.1016/j.measurement.2024.115530)
 
-</td>
-<td width="50%" valign="top">
+## 在审工作
 
-<a href="https://github.com/zed123214/SkillGrow#产品预览">
-  <img src="https://raw.githubusercontent.com/zed123214/SkillGrow/main/docs/assets/dashboard-overview.png" alt="SkillGrow：用例评测、评分依据与运行追踪 Dashboard" width="480" />
-</a>
+**约束感知深度展开 · 第一作者**<br>
+在全双工车联网的资源分配中，逐对求解发射功率是匹配前反复执行的一步。我们将功率更新展开为固定层数的网络，通过解析投影限制输出，再按物理模型剔除不可行的配对。在独立留出的 4,096 个交替优化可行样本上，按 4 个训练种子取均值，最终筛选前的速率约束违规率为 **1.422%**，投影 MLP 基线为 **10.132%**。[项目仓库](https://github.com/zed123214/constraint-aware-du-fd-v2v)
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+**方向先验引导的图神经网络功率控制（DPGNN）· 第三作者**<br>
+这项合作研究将链路间干扰的方向性引入图神经网络，在各链路的服务质量约束下联合分配发射功率。
 
-<p>让 Agent 参与算子实现、测试与性能优化，在 Web 工作台中逐轮推进任务、审批工具调用并检查实验结果；同时提供 CLI 与 TUI。</p>
+## 开源工程
 
-<ul>
-  <li><strong>算子开发：</strong>整理规格与基线，修改候选实现，执行正确性测试与配对测速，汇总结果并导出报告。</li>
-  <li><strong>任务恢复：</strong>在 Graph + SQLite + Local 模式下持久化检查点与审批状态，支持 Core 重启后续接任务、复用已记录的工具结果。</li>
-  <li><strong>工具隔离：</strong>按会话分配 Kubernetes 沙箱，管理资源限制、网络策略与回收；接入 MCP、Skills 和子 Agent。</li>
-  <li><strong>执行追踪：</strong>在工作台查看流式事件、工具时间线与审批记录，导出运行报告。</li>
-</ul>
+### 昇腾 CANN 与 KitAgent
 
-<p><strong>工程验证：</strong>单节点 kind + Cilium、离线 Provider 环境下，20 个并发会话完成 200 次跨会话读写探测，泄漏为 0；100 次沙箱创建与回收全部完成，最终资源残留为 0。</p>
+我用 Ascend C 实现了逐元素比较算子 `Equal`，负责 Host 侧分块和 AICore 计算内核，支持 1–8 维广播。实现已合入 CANN 的 `ops-math` 仓库。[合入记录 · PR #5425](https://gitcode.com/cann/ops-math/pull/5425)
 
-</td>
-<td width="50%" valign="top">
+**Agent 改完算子，怎么知道它算对了、跑快了？** 我把这个问题做成了 KitAgent 的一个可回放实验。以 `Equal` 为例，先用广播输入和特殊值定义预期输出，再将候选实现与参考结果逐项比较，最后对基线和候选实现做配对测速。工作台保留代码差异、工具调用和测试结果。离线演示使用脚本化模型响应，工具在本地实际执行。[Equal 开发演示](https://github.com/zed123214/kitagent#demo)
 
-<p>SkillGrow 是我在 <strong>2026 字节跳动工程训练营</strong> 做的项目，用财报抽取的失败样例评测和改进 Skill。</p>
+为让中断的实验可以接续，KitAgent 在 Graph + SQLite + Local 模式下保存检查点、审批状态和工具结果。在单节点 kind + Cilium 的离线验收中，20 个并发会话完成了 200 次跨会话读写探测，均未发现泄漏。[恢复设计](https://github.com/zed123214/kitagent/blob/main/docs/durable-recovery.md) · [沙箱验收](https://github.com/zed123214/kitagent/blob/main/docs/kubernetes-sandbox.md)
 
-<ul>
-  <li><strong>失败诊断：</strong>关联执行轨迹与解析结果，结合分层评测和 Judge 诊断，定位输出格式、表格结构与字段抽取问题。</li>
-  <li><strong>候选修订：</strong>将失败反馈转化为 Skill 文档与规则候选补丁，通过 Schema 与路径白名单约束修改范围。</li>
-  <li><strong>修改记录：</strong>在独立工作区保存候选补丁、回放评分和版本快照，方便比较每次修订的结果。</li>
-  <li><strong>质量判断：</strong>通过 DocumentIR 与 Evidence Pack 组织文档和证据，输出质量决策，并按运行追踪产物与报告。</li>
-</ul>
+### SkillGrow · 财报抽取评测
 
-<p><strong>可运行示例：</strong>提供 20 个合成回放用例，演示文档转换、证据构建与质量判断；金融解析 Skill 使用 LAS，评测模块结合 OpenClaw。</p>
+财报抽取结果即使符合格式，也可能把某一年的数值配到另一年的表头。我在字节跳动工程训练营开发了 SkillGrow，把字段、原文证据和逐项评分关联到同一用例。修改抽取规则后，可在独立工作区回放失败用例和此前通过的用例，检查修订效果。公开仓库提供 20 个合成回放用例。[项目与演示](https://github.com/zed123214/SkillGrow) · [候选补丁与回归评测](https://github.com/zed123214/SkillGrow/tree/main/financial-pdf-skill-eval-framework/optimizer)
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+## 算子竞赛
 
-<p><sub>Python · asyncio · LangGraph · SQLite · Kubernetes · React</sub></p>
-<p>
-  <a href="https://github.com/zed123214/kitagent#demo">算子开发演示</a> ·
-  <a href="https://github.com/zed123214/kitagent#operator-demo">优化实战</a> ·
-  <a href="https://github.com/zed123214/kitagent#architecture">系统架构</a> ·
-  <a href="https://github.com/zed123214/kitagent/blob/main/docs/durable-recovery.md">恢复设计</a>
-</p>
-
-</td>
-<td width="50%" valign="top">
-
-<p><sub>Python · OpenClaw · LAS · Pytest · Streamlit · Docker</sub></p>
-<p>
-  <a href="https://github.com/zed123214/SkillGrow#产品预览">查看演示</a> ·
-  <a href="https://github.com/zed123214/SkillGrow#核心能力">核心能力</a> ·
-  <a href="https://github.com/zed123214/SkillGrow#工作流">自进化流程</a>
-</p>
-
-</td>
-</tr>
-</table>
-
-
-## 开源贡献与竞赛
-
-- **昇腾 CANN｜开源贡献**：用 Ascend C 实现 `Equal` 逐元素比较算子，支持多维广播和多种数据类型，306 个精度用例全部通过。[ops-math PR #5425 已合并](https://gitcode.com/cann/ops-math/pull/5425)
-- **2026 CANN 挑战赛｜决赛三等奖（第 14 / 4496 名）**：面向视频生成，实现变长三维旋转位置编码算子 `VarLenNdRotaryPosEmb`，以单个 kernel 支持 FP16/FP32、动态宽高和乱序时间索引。通过向量化、跨注意力头复用系数和自适应分块，官方 5 个可见测试点的耗时降低 20.9%～86.2%。在 69 组回归输入上与 PyTorch 参考实现对照，约 6885 万个输出元素均在容差内。
-- **中国电信「星辰杯」高校 AI 算子开发挑战赛｜优秀奖（决赛 16 强）**：与队友优化稀疏注意力反向算子 `SparseFlashAttentionGrad`。针对 `dK`、`dV` 梯度归约集中在少数计算核、拖慢整体收尾的问题，按查询计算量和归约工作量重新分配任务。在昇腾 910B3 五分片实验中，相比初版分片方案，正序、反序两轮对照测速的耗时分别降低 7.56% 和 5.67%。
-
-[查看 Equal 与 SparseFlashAttentionGrad 的实现、测速与回归记录 →](https://github.com/zed123214/kitagent#operator-demo)
-
-### 在 KitAgent 中推进一轮实验
-
-**理解规格与基线 → 分析瓶颈 → 修改候选 → 精度验证与配对测速 → 汇总报告、继续迭代。**
-
-在同一会话里查看每一步调用了哪些工具，确认文件写入和命令执行。常用步骤可以保存为 Skills，在下次实验中复用。
-
-[观看 Equal 开发演示](https://github.com/zed123214/kitagent#demo) · [复制算子优化任务模板](https://github.com/zed123214/kitagent#operator-demo) · [启动工作台](https://github.com/zed123214/kitagent#quick-start)
-
-## 学术成果
-
-研究方向为**深度学习与无线网络资源优化**，重点研究如何将迭代优化算法和链路干扰关系融入神经网络，在可靠性、速率等约束下分配功率与频谱。
-
-**在审论文（2 篇）**
-- **约束感知深度展开（第一作者）**：将迭代优化算法的更新步骤映射为固定层数的神经网络，在可靠性与速率约束下求解全双工车联网的资源分配问题。
-- **图神经网络功率控制（第三作者）**：参与 DPGNN 研究，将方向先验引入图神经网络，为相互干扰的链路联合分配发射功率，以满足各链路的服务质量要求。
-
-**已发表 SCI 论文（3 篇）**
-- **第一作者（1 篇）**：研究[车联网中的功率与频谱联合分配](https://doi.org/10.1016/j.phycom.2026.103403)，发表于 *Physical Communication*。
-- **第二作者（2 篇）**：[喷流整形](https://doi.org/10.1016/j.optlastec.2024.111467)发表于 *Optics & Laser Technology*；[折射率传感](https://doi.org/10.1016/j.measurement.2024.115530)发表于 *Measurement*。
-
-
-## 开发记录
-
-| 工作 | 实现与验证入口 |
-| --- | --- |
-| **KitAgent：算子 Coding Agent 工作流** | [开发演示](https://github.com/zed123214/kitagent#demo)与[优化案例](https://github.com/zed123214/kitagent#operator-demo)，串起规格分析、代码修改、正确性验证、配对测速与报告交付。 |
-| **KitAgent：Web 工作台与会话权限** | [功能提交](https://github.com/zed123214/kitagent/commit/3bbcee2d62bf79c6203a459d5d5d3035c64d03ac)包含浏览器工作台、Core 网关、运行报告与权限控制，附有后端、前端和浏览器测试记录。 |
-| **KitAgent：Kubernetes 沙箱** | [功能提交](https://github.com/zed123214/kitagent/commit/634ba01c983b27ffa293d658638ade6c697ffa3c)与[部署、验收说明](https://github.com/zed123214/kitagent/blob/main/docs/kubernetes-sandbox.md)，覆盖会话隔离、资源限制与回收。 |
-| **KitAgent：持久化恢复设计** | [设计文档](https://github.com/zed123214/kitagent/blob/main/docs/durable-recovery.md)说明检查点、工具执行记录、恢复令牌与并发恢复的处理方式。 |
-| **SkillGrow：失败反馈驱动的自进化** | [候选与回归模块](https://github.com/zed123214/SkillGrow/tree/main/financial-pdf-skill-eval-framework/optimizer/)围绕失败轨迹生成规则补丁提案，管理候选工作区、回放记录与版本快照。 |
-| **SkillGrow：文档质量与运行隔离** | [功能提交](https://github.com/zed123214/SkillGrow/commit/61d73ab067a6dbb2b618eb4a42d79706b829f447)包含文档表示、证据包、质量策略和回归测试。 |
-
-[KitAgent 提交记录](https://github.com/zed123214/kitagent/commits/main/) · [SkillGrow 提交记录](https://github.com/zed123214/SkillGrow/commits/main/)
-
-## 技术栈
-
-| 方向 | 技术 |
-| --- | --- |
-| **AI 应用** | LangGraph · MCP · Skills · RAG · Milvus |
-| **后端开发** | Python · asyncio · FastAPI · Java · Spring Boot · Redis |
-| **工程与评测** | Docker · Kubernetes · SQLite · Pytest · GitHub Actions |
-| **算子开发** | Ascend C · CANN · Tiling · AIC / AIV 协作 · 性能分析 |
-
----
-
-欢迎交流 **算子 Coding Agent、Skill 自进化、Ascend C 性能优化与 Agent 工程**，也欢迎联系 **2027 届 AI Infra / 后端研发岗位**。
-
-**Email：** [yangbaorong78@gmail.com](mailto:yangbaorong78@gmail.com)
+- **中国电信「星辰杯」高校 AI 算子开发挑战赛 · 决赛 16 强，优秀奖。** 我和队友优化稀疏注意力反向算子 `SparseFlashAttentionGrad`，按查询计算量和梯度归约工作量重新分配任务。在昇腾 910B3 五分片实验中，相对初版分片方案，正序、反序两轮配对测速的耗时分别降低 **7.56%** 和 **5.67%**。[实现与测速记录](https://github.com/zed123214/kitagent#operator-demo)
+- **2026 CANN 挑战赛 · 决赛三等奖。** 为视频生成实现变长三维旋转位置编码算子 `VarLenNdRotaryPosEmb`，在不同注意力头之间复用旋转系数。69 组回归输入的输出均通过与 PyTorch 参考实现的容差校验。

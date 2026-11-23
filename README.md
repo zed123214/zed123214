@@ -2,7 +2,7 @@
 
 [学术主页](https://zed123214.github.io/) · [yangbaorong78@gmail.com](mailto:yangbaorong78@gmail.com)
 
-我用 Ascend C 写昇腾算子，也给 Coding Agent 做开发工具。我为 CANN 实现了支持多维广播的 `Equal`，又用这个算子做了一个工作台演示：从修改实现、核对输出，到比较修改前后的耗时，每一步都可以回看。
+**2027 届硕士，求职方向为 AI Infra 与 Coding Agent 研发。** 我用 Ascend C 实现的 `Equal` 算子已合入昇腾 CANN。我也开发了 KitAgent，用这个算子演示如何验证一次代码修改：先对照参考输出检查精度，再对基线和候选实现配对测速。[CANN 合入 PR](https://gitcode.com/cann/ops-math/pull/5425) · [KitAgent 演示](https://github.com/zed123214/kitagent#demo)
 
 ## 代表项目
 
